@@ -1,5 +1,11 @@
 package com.nomad.smart.server;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import com.nomad.smart.client.GreetingService;
 import com.nomad.smart.shared.FieldVerifier;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
@@ -9,7 +15,7 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
  */
 @SuppressWarnings("serial")
 public class GreetingServiceImpl extends RemoteServiceServlet implements
-		GreetingService {
+GreetingService {
 
 	public String greetServer(String input) throws IllegalArgumentException {
 		// Verify that the input is valid. 
@@ -20,19 +26,58 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
 					"Name must be at least 4 characters long");
 		}
 
-		String serverInfo = getServletContext().getServerInfo();
 		String userAgent = getThreadLocalRequest().getHeader("User-Agent");
 
 		// Escape data from the client to avoid cross-site script vulnerabilities.
 		input = escapeHtml(input);
 		userAgent = escapeHtml(userAgent);
+		
+		String temp = null;
+		
+		try {
+			HttpURLConnection connection = getConnection("smarttravelservice", null);
+			BufferedReader in = new BufferedReader(
+					new InputStreamReader(connection.getInputStream()));
+			String inputLine;
+			StringBuffer response = new StringBuffer();
 
-		return "Hello, " + input + "!<br><br>I am running " + serverInfo
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+
+			//print result
+			temp = response.toString();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			temp = "fail";
+			e.printStackTrace();
+		}
+		
+		return "This works I think !" + temp
 				+ ".<br><br>It looks like you are using:<br>" + userAgent;
 	}
 
-	/**
-	 * Escape an html string. Escaping data received from the client helps to
+	public void addUser(String name, String emailId, String contact) {
+		try {
+			HttpURLConnection connection = getConnection("adduser", "user=" + name + ",email=" + emailId + ",contact" + contact);
+			BufferedReader in = new BufferedReader(
+					new InputStreamReader(connection.getInputStream()));
+			String inputLine;
+			StringBuffer response = new StringBuffer();
+
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	/* Escape an html string. Escaping data received from the client helps to
 	 * prevent cross-site script vulnerabilities.
 	 * 
 	 * @param html the html string to escape
@@ -44,5 +89,23 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
 		}
 		return html.replaceAll("&", "&amp;").replaceAll("<", "&lt;")
 				.replaceAll(">", "&gt;");
+	}
+
+	private HttpURLConnection getConnection(String api, String queryArgs) throws Exception {
+
+		String url = "http://1.smartnomadservice.appspot.com";
+		if(api != null)
+			url += "\" + api";
+		
+		if(queryArgs != null)
+			url += "?" + queryArgs;
+
+		URL obj = new URL(url);
+		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+		// optional default is GET
+		con.setRequestMethod("GET");
+
+		return con;
 	}
 }
