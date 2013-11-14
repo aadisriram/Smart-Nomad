@@ -21,8 +21,8 @@
 		<welcome-file>Signup.html</welcome-file>
 		<welcome-file>ClientRegister.html</welcome-file>
 		<welcome-file>Search.html</welcome-file>
-		<welcome-file>Event.html</welcome-file>
-		<welcome-file>User.html</welcome-file>
+		<welcome-file>CreateEvent.html</welcome-file>
+		<welcome-file>UserInterest.html</welcome-file>
 	</welcome-file-list>
 
 </web-app>

@@ -1,5 +1,7 @@
 package com.nomad.smart.client;
 
+import java.util.ArrayList;
+
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -22,62 +24,28 @@ public class Signup implements EntryPoint {
 	@Override
 	public void onModuleLoad() {
 
-		final Button sendButton = new Button("Send");
-		final TextBox nameField = new TextBox();
-		nameField.setText("GWT User");
-		final Label errorLabel = new Label();
-
-		// We can add style names to widgets
-		sendButton.addStyleName("sendButton");
-
-		// Add the nameField and sendButton to the RootPanel
-		// Use RootPanel.get() to get the entire body element
-		RootPanel.get("nameFieldContainer").add(nameField);
-		RootPanel.get("sendButtonContainer").add(sendButton);
-		RootPanel.get("errorLabelContainer").add(errorLabel);
-
-//		Create a handler for the sendButton and nameField
-		class MyHandler implements ClickHandler, KeyUpHandler {
-			/**
-			 * Fired when the user clicks on the sendButton.
-			 */
-			public void onClick(ClickEvent event) {
-				sendNameToServer();
-			}
-
-			/**
-			 * Fired when the user types in the nameField.
-			 */
-			public void onKeyUp(KeyUpEvent event) {
-				if (event.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
-					sendNameToServer();
+		// Then, we send the input to the server.
+		try {
+			greetingService.addUser("12345", "12345", new ArrayList<String>(), new AsyncCallback<String>() {
+				public void onFailure(Throwable caught) {
+					// Show the RPC error message to the user
+					Window.alert("Failed");
 				}
-			}
-			
-			private void sendNameToServer() {
 
-				// Then, we send the input to the server.
-				greetingService.greetServer("Testing",
-						new AsyncCallback<String>() {
-					public void onFailure(Throwable caught) {
-						// Show the RPC error message to the user
-					}
-
-					public void onSuccess(String result) {
-						sendNameToServer();
-						Window.alert("Testing");
-					}
-				});
-			}
-
-			/**
-			 * Send the name from the nameField to the server and wait for a response.
-			 */
+				public void onSuccess(String result) {
+					Window.alert(result);
+				}
+			});
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			Window.Location.replace(Window.Location.getHost()+"/profile");
 		}
 
-		// Add a handler to send the name to the server
-		MyHandler handler = new MyHandler();
-		sendButton.addClickHandler(handler);
-		nameField.addKeyUpHandler(handler);
+		/**
+		 * Send the name from the nameField to the server and wait for a response.
+		 */
 	}
+
 }

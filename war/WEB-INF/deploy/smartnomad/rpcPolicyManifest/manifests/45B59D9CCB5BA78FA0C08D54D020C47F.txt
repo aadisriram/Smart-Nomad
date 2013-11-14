@@ -1,0 +1,2 @@
+serviceClass: com.nomad.smart.client.GreetingService
+path: D4936040D4CDC27960AFF1EE27761150.gwt.rpc
