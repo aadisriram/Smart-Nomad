@@ -1,2 +1,3 @@
 # Module smartnomad
 # RPC service class, partial path of RPC policy file
+com.nomad.smart.client.GreetingService, 4F04AF25A114D75B76FDDA21F05B89D4.gwt.rpc
