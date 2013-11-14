@@ -1,62 +1,206 @@
 <!doctype html>
-<!-- The DOCTYPE declaration above will set the     -->
-<!-- browser's rendering engine into                -->
-<!-- "Standards Mode". Replacing this declaration   -->
+<!-- The DOCTYPE declaration above will set the -->
+<!-- browser's rendering engine into -->
+<!-- "Standards Mode". Replacing this declaration -->
 <!-- with a "Quirks Mode" doctype is not supported. -->
 
 <html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<head>
 
-    <!--                                                               -->
-    <!-- Consider inlining CSS to reduce the number of requested files -->
-    <!--                                                               -->
-    <link type="text/css" rel="stylesheet" href="SmartNomad.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <!--                                           -->
-    <!-- Any title is fine                         -->
-    <!--                                           -->
-    <title>Web Application Starter Project</title>
-    
-    <!--                                           -->
-    <!-- This script loads your compiled module.   -->
-    <!-- If you add any GWT meta tags, they must   -->
-    <!-- be added before this line.                -->
-    <!--                                           -->
-    <script type="text/javascript" language="javascript" src="smartnomad/smartnomad.nocache.js"></script>
-  </head>
+<title>Coding A CSS3 &amp; HTML5 One Page Template |
+        Tutorialzine demo</title>
 
-  <!--                                           -->
-  <!-- The body can have arbitrary html, or      -->
-  <!-- you can leave the body empty if you want  -->
-  <!-- to create a completely dynamic UI.        -->
-  <!--                                           -->
-  <body>
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
-    <!-- OPTIONAL: include this if you want history support -->
-    <iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position:absolute;width:0;height:0;border:0"></iframe>
-    
-    <!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
-    <noscript>
-      <div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
-        Your web browser must have JavaScript enabled
-        in order for this application to display correctly.
-      </div>
-    </noscript>
+<!-- -->
+<!-- Consider inlining CSS to reduce the number of requested files -->
+<!-- -->
+<link type="text/css" rel="stylesheet" href="SmartNomad.css">
 
-    <h1>Web Application Starter Project</h1>
+<!-- -->
+<!-- This script loads your compiled module. -->
+<!-- If you add any GWT meta tags, they must -->
+<!-- be added before this line. -->
+<!-- -->
+<script type="text/javascript" language="javascript"
+        src="smartnomad/smartnomad.nocache.js"></script>
+</head>
 
-    <table align="center">
-      <tr>
-        <td colspan="2" style="font-weight:bold;">Please enter your name:</td>        
-      </tr>
-      <tr>
-        <td id="nameFieldContainer"></td>
-        <td id="sendButtonContainer"></td>
-      </tr>
-      <tr>
-        <td colspan="2" style="color:red;" id="errorLabelContainer"></td>
-      </tr>
-    </table>
-  </body>
+<!-- -->
+<!-- The body can have arbitrary html, or -->
+<!-- you can leave the body empty if you want -->
+<!-- to create a completely dynamic UI. -->
+<!-- -->
+<body>
+
+        <!-- OPTIONAL: include this if you want history support -->
+        <iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1'
+                style="position: absolute; width: 0; height: 0; border: 0"></iframe>
+
+        <!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
+        <noscript>
+                <div
+                        style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+                        Your web browser must have JavaScript enabled in order for this
+                        application to display correctly.</div>
+        </noscript>
+
+        <section id="page">
+                <!-- Defining the #page section with the section tag -->
+
+                <header>
+                        <!-- Defining the header section of the page with the appropriate tag -->
+
+                        <hgroup>
+                                <h1>NOMADS</h1>
+                                <h3>Travel, Meet New People, Share Your Interests & Expertise,
+                                        Even Earn A Buck Or Two.</h3>
+                        </hgroup>
+
+                        <nav class="clear">
+                                <!-- The nav link semantically marks your main site navigation -->
+                                <ul>
+                                        <li><a href="#article1">TRAVELLER</a></li>
+                                        <li><a href="#article2">SERVICE PROVIDER</a></li>
+                                        <li><a href="#article3">LOGIN</a></li>
+                                </ul>
+                        </nav>
+
+                </header>
+
+                <section id="articles">
+                        <!-- A new section with the articles -->
+
+                        <!-- Article 1 start -->
+
+                        <div class="line"></div>
+                        <!-- Dividing line -->
+
+                        <article id="article1">
+                                <!-- The new article tag. The id is supplied so it can be scrolled into view. -->
+                                <h2>TRAVELLER</h2>
+
+                                <div class="line"></div>
+
+                                <div class="articleBody clear">
+
+                                        <figure>
+                                                <!-- The figure tag marks data (usually an image) that is part of the article -->
+                                                <a href="http://tutorialzine.com/2010/02/photo-shoot-css-jquery/"><img
+                                                        src="http://tutorialzine.com/img/featured/641.jpg" width="620"
+                                                        height="340" /></a>
+                                        </figure>
+
+                                        <p>Travelling is you passion, but while travelling are you also
+                                                looking to share your interests or expertise with people whom you
+                                                can meet at the destination. May be it can help them with some
+                                                expertise you have, or it can help them share their interests to
+                                                explore an opportunity and may be help earn a buck or two too.</p>
+                                        <p>Para 2 coming up</p>
+                                </div>
+                        </article>
+
+                        <!-- Article 1 end -->
+
+
+                        <!-- Article 2 start -->
+
+                        <div class="line"></div>
+
+                        <article id="article2">
+                                <h2>SERVICE PROVIDER</h2>
+
+                                <div class="line"></div>
+
+                                <div class="articleBody clear">
+                                        <figure>
+                                                <a
+                                                        href="http://tutorialzine.com/2010/01/sweet-tabs-jquery-ajax-css/"><img
+                                                        src="http://tutorialzine.com/img/featured/633.jpg" width="620"
+                                                        height="340" /></a>
+                                        </figure>
+
+                                        <p>Are you organizing an event, a tech talk or may be a
+                                                photography meetup in your city. And are you looking for someone
+                                                who can help you takeup the stage or share your passion and
+                                                interests, may be a traveller in the city.</p>
+                                        <p>Para 2 coming up</p>
+                                </div>
+                        </article>
+
+                        <!-- Article 2 end -->
+
+                        <!-- Article 3 start -->
+
+                        <div class="line"></div>
+
+                        <article id="article3">
+                                <h2>LOGIN</h2>
+
+                                <div class="line"></div>
+
+                                <div class="articleBody clear">
+                                        <figure>
+                                                <a
+                                                        href="http://tutorialzine.com/2010/01/halftone-navigation-menu-jquery-css/"><img
+                                                        src="http://tutorialzine.com/img/featured/610.jpg" width="620"
+                                                        height="340" /></a>
+                                        </figure>
+
+                                        <p>Today we are making a CSS3 & jQuery halftone-style
+                                                navigation menu, which will allow you to display animated
+                                                halftone-style shapes in accordance with the navigation links, and
+                                                will provide a simple editor for creating additional shapes as
+                                                well.</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Integer luctus quam quis nibh fringilla sit amet consectetur
+                                                lectus malesuada. Sed nec libero erat. Lorem ipsum dolor sit amet,
+                                                consectetur adipiscing elit. Nunc mi nisi, rhoncus ut vestibulum
+                                                ac, sollicitudin quis lorem. Duis felis dui, vulputate nec
+                                                adipiscing nec, interdum vel tortor. Sed gravida, erat nec rutrum
+                                                tincidunt, metus mauris imperdiet nunc, et elementum tortor nunc
+                                                at eros. Donec malesuada congue molestie. Suspendisse potenti.
+                                                Vestibulum cursus congue sem et feugiat. Morbi quis elit odio.</p>
+                                </div>
+                        </article>
+
+                        <!-- Article 3 end -->
+
+
+                </section>
+
+                <footer>
+                        <!-- Marking the footer section -->
+
+                        <div class="line"></div>
+
+                        <p>Copyright 2010 - YourSite.com</p>
+                        <!-- Change the copyright notice -->
+
+                        <a href="#" class="up">Go UP</a> <a
+                                href="http://tutorialzine.com/2010/02/html5-css3-website-template/"
+                                class="by">Template by Tutorialzine</a>
+
+
+                </footer>
+
+        </section>
+
+<!--         <table align="center"> -->
+<!--                 <tr> -->
+<!--                         <td colspan="2" style="font-weight: bold;">Please enter your -->
+<!--                                 name:</td> -->
+<!--                 </tr> -->
+<!--                 <tr> -->
+<!--                         <td id="nameFieldContainer"></td> -->
+<!--                         <td id="sendButtonContainer"></td> -->
+<!--                 </tr> -->
+<!--                 <tr> -->
+<!--                         <td colspan="2" style="color: red;" id="errorLabelContainer"></td> -->
+<!--                 </tr> -->
+<!--         </table> -->
+</body>
 </html>
